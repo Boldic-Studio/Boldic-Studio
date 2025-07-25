@@ -3,16 +3,24 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq6wP8Z5e0QpoMZKWt4dPZ4pKhk2pX1Ep+JmZ1RfQzK7UMuJ0z1T8wz9uwM1CFF2YuHqR3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Boldic Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boldic Studio | More than just Design</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="..." crossorigin="anonymous" />
 <link rel="stylesheet" href="fontawesome/css/all.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-<link rel="icon" href="./BOLDIC STUDIO.png" type="image/png">
+<link rel="icon" href="icon2.png" type="image/png">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
   <style>
+    
     @font-face {
       font-family: 'Proxima Nova';
       src: url('ProximaNova-Bold.woff2') format('woff2'),
@@ -34,7 +42,7 @@
       overflow-x: hidden;
     
   font-family: 'Cairo', sans-serif;
-
+    
     }
     header {
       width: 100%;
@@ -46,16 +54,22 @@
       position: fixed;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid #fed600;
+      
     }
     header img.logo {
       height: 40px;
     }
+nav {
+    display: flex;
+    gap: 5px; /* اتحكم في المسافة هنا */
+}
+
+
 
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 20px;
+      margin-left:0px;
       font-weight: 500;
       transition: color 0.3s;
     }
@@ -111,9 +125,12 @@
     }
     section {
       padding: 100px 10% 60px;
+      
     }
+   
+
     .about {
-      background-color: #111;
+      background-color: #000000;
     }
     .about h2 {
       color: #fed600;
@@ -138,14 +155,38 @@
       color: #fed600;
     }
     @media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .hero .desktop-content {
+    display: none; /* نخفي الكلام القديم */
+  }
+  .hero .mobile-content {
+    display: block; /* نعرض المحتوى الجديد */
+  }
+  .hero h2 {
+    font-size: 60px;
+  }
+  .hero h3 {
+        font-size:36px;
+  }
+  .hero p {
+        font-size: 20px;
+  }
+  
+}
+  /*  @media (max-width: 768px) {
       .hero h2 {
-        font-size: 36px;
+        font-size: 60px;
       }
       .hero h3 {
-        font-size: 24px;
+        font-size:36px;
       }
       .hero p {
-        font-size: 20px;
+        font-size: 30px;
       }
     }
     @media (max-width: 480px) {
@@ -160,7 +201,7 @@
         display: inline-block;
         margin: 10px 10px 0 0;
       }
-    }
+    }*/
     .animated-shape {
   position: absolute;
   width: 25px;
@@ -187,6 +228,7 @@
   50% { transform: translateY(-20px); }
   100% { transform: translateY(0); }
 }
+/* زر واتساب عائم */
 .whatsapp-float {
   position: fixed;
   width: 55px;
@@ -205,13 +247,14 @@
   justify-content: center;
   transition: transform 0.3s ease;
   text-decoration: none;
-
 }
 
 .whatsapp-float:hover {
   transform: scale(1.1);
   background-color: #1ebe5d;
 }
+
+/* زر واتساب عادي */
 .whatsapp-btn {
   display: inline-flex;
   align-items: center;
@@ -226,6 +269,25 @@
   margin-right: 8px;
   font-size: 22px;
 }
+
+/* ---- تحسين للشاشات الصغيرة ---- */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 45px;         /* أصغر للموبايل */
+    height: 45px;
+    font-size: 25px;     /* أيقونة أصغر */
+    bottom: 15px;        /* أقرب للحافة */
+    right: 30px;
+  }
+  .whatsapp-btn {
+    padding: 8px 15px;   /* أصغر */
+    font-size: 16px;
+  }
+  .whatsapp-btn i {
+    font-size: 18px;
+  }
+}
+
 .animated-shapes {
   position: absolute;
   top: 0;
@@ -311,24 +373,215 @@ button[onclick="openModal()"]:hover {
   font-size: 80%;
   margin-left: 12%;
 }
+#cursorCanvas {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* مهم عشان الماوس يشتغل */
+  z-index: 9999;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+a, button {
+  -webkit-tap-highlight-color: transparent; /* يشيل المربع الأزرق في الموبايل */
+}
+.service-card:focus,
+.service-card:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#services div:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+#services div:focus,
+#services div:active {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-focus-ring-color: transparent !important;
+}
+#services div,
+#services div * {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+}
+#services div {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#services div:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+
 
   </style>
-</head>
-<body>
-  <header>
-    
-    <img class="logo" id="logo" src="./BOLDIC STUDIO.png" alt="Boldic Studio Logo">
 
+
+
+
+  <canvas id="cursorCanvas"></canvas>
+</head>
+
+<body>
+  
+<header>
+  <img class="logo" id="logo" src="./BOLDIC STUDIO.png" alt="Boldic Studio Logo">
+  <nav>
+    <a href="#footer">اتصل بنا</a>
+    <a href="#clients">عملاءنا</a>
+    <a href="#services">خدماتنا</a>
+     <a href="#about">من نحن</a>
+    <a href="#home">الرئيسية</a>
+   
     
-    <nav>
-      <a href="#home">الرئيسية</a>
-      <a href="#about">من نحن</a>
-      <a href="#services">خدماتنا</a>
-      <a href="#clients">عملاءنا </a> 
-      <a href="#footer">اتصل بنا</a>
-      
-    </nav>
-  </header>
+    
+    
+  </nav>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMenu()">الرئيسية</a>
+    <a href="#about" onclick="toggleMenu()">من نحن</a>
+    <a href="#services" onclick="toggleMenu()">خدماتنا</a>
+    <a href="#clients" onclick="toggleMenu()">عملاءنا</a>
+    <a href="#footer" onclick="toggleMenu()">اتصل بنا</a>
+</div>
+
+<div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 75px;
+    background: #000000;
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 1000;
+    flex-direction: row;           /* نتأكد إنهم في صف */
+    
+  }
+  .logo {
+    height: 60px;
+    max-width: 180px;
+    object-fit: contain;
+  }
+  nav {
+    display: flex;
+    gap: 30px;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: #fed600; }
+  .hamburger {
+    display: none;
+    font-size: 32px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 2001;
+  }
+
+  /* الموبايل */
+  @media (max-width: 768px) {
+    header{
+      padding: 15px 15px ;
+    }
+    .logo {
+    height: 2px;      /* صغر اللوجو */
+    max-width: 90px;  /* ممكن كمان تصغر العرض */
+  }
+   .hamburger {
+    font-size: 27px;   /* صغر أيقونة المنيو */
+  }
+
+    nav { display: none; }
+    .hamburger { display: block; }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #000000;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: right 0.4s ease;
+      z-index: 2000;
+    }
+    .mobile-menu a {
+      color: #ffffff;
+      font-size: 22px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: #fed600; }
+
+    .menu-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      display: none;
+      z-index: 1500;
+    }
+    .mobile-menu.active { right: 0; }
+    .menu-overlay.active { display: block; }
+    /* أيقونة × */
+    .hamburger.active {
+      transform: rotate(90deg);
+    }
+  }
+  
+</style>
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
+    document.getElementById('menuOverlay').classList.toggle('active');
+  }
+
+  // اسكرول مع تعويض ارتفاع الهيدر
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const headerHeight = document.querySelector('header').offsetHeight;
+        
+        // مسافة إضافية لو القسم هو services
+        let extraOffset = 0;
+        if (this.getAttribute('href') === "#services") {
+          extraOffset = 200; // غير الرقم ده حسب ما تحب
+        }
+
+        const elementPosition = target.getBoundingClientRect().top + window.scrollY - (headerHeight + extraOffset);
+        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+
+        // يقفل المنيو لو في وضع الموبايل
+        document.getElementById('mobileMenu').classList.remove('active');
+        document.getElementById('menuOverlay').classList.remove('active');
+      }
+    });
+  });
+</script>
 
 
 
@@ -341,6 +594,13 @@ button[onclick="openModal()"]:hover {
     <span class="ring"></span>
     <span class="circle"></span>
     <span class="square"></span>
+     <span class="square"></span>
+      <span class="square"></span>
+       <span class="square"></span>
+<span class="circle"></span>
+<span class="circle"></span>
+<span class="ring"></span>
+<span class="ring"></span>
   </div>
     <div class="hero-content">
       <h2 data-aos="fade-up">Welcome !</h2>
@@ -353,12 +613,13 @@ button[onclick="openModal()"]:hover {
 <div class="animated-shape circle2"></div>
 
   </div>
-<hr style="border: none; border-top: 1px solid #fed600; margin: 0;">
+
 </section>
-<hr style="border: none; border-top: 1px solid #fed600; margin: 0;">
 
 
-  <section class="about" id="about" style="padding: 80px 5% 60px;">
+
+
+  <section class="about" id="about" style="padding: 80px 5% 60px;" background_colour="black">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 2%;">
       <h2 data-aos="fade-up"style="text-align: center;">من نحن؟</h2>
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 2%; text-align: center;">
@@ -378,14 +639,14 @@ button[onclick="openModal()"]:hover {
       <h3 data-aos="zoom-in"style="color: #fed600; margin-top: 20px; font-size: 26px;">لماذا نحن؟</h3>
       <ul style="font-size: 22px; margin: 12px 0 0 20px; line-height: 1.6;">
         <p data-aos="fade-left" data-aos-delay="100">علشان احنا مش بنمشي ورا الترند؛ لكن بندرس طلب العميل ونشتغل عليه ونحاول نوصل للحل ونطبق جميع افكاره، وهذا هو الفرق</p>
-        <p>نجمع بين التصميم الفني والتفكير الاستراتيجي الذي يميز عملائنا داخل مصر وخارجها </p>
+        <p data-aos="fade-right" data-aos-delay="200">نجمع بين التصميم الفني والتفكير الاستراتيجي الذي يميز عملائنا داخل مصر وخارجها </p>
       </ul>
       <p data-aos="fade-up" data-aos-delay="300"style="font-size: 22px; margin-top: 12px; line-height: 1.6;"><strong>Boldic Studio — More than just design.</strong></p>
     </div>
   </section>
 
-<hr style="border: none; border-top: 1px solid #fed600; margin: 0;">
-<section style="padding: 60px 5%; background-color: #111; text-align: center;">
+<!-- <hr style="border: none; border-top: 1px solid #fed600; margin: 0;"> -->
+<section style="padding: 60px 5%; background-color: #000000; text-align: center;">
   <h2 style="color: #fed600; font-size: 36px;" data-aos="fade-up">كيف نعمل؟</h2>
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px;">
     
@@ -404,53 +665,92 @@ button[onclick="openModal()"]:hover {
     </div>
   </div>
 </section>
-<hr style="border: none; border-top: 1px solid #fed600; margin: 0;">
-<section class="services" id="services">
-  <h2 data-aos="fade-up" style="color: #fed600; font-size: 36px; margin-bottom: 40px; text-align: center;">خدماتنا</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+<h2 style="color: #fed600; font-size: 36px; text-align: center; margin: 30px 0 70px 0;" data-aos="fade-up">
+  خدماتنا
+</h2>
 
-    <!-- بناء موقع الكتروني -->
-    <div data-aos="fade-up" data-aos-delay="1000"
-      style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
-      onclick="selectService(this)" data-service=" موقع الكتروني"
-      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
-      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-      <h3 class="service-card" data-service="موقع الكتروني" onclick="selectService(this)"style="color: #fed600; font-size: 24px; margin-bottom: 10px;">موقع الكتروني</h3>
-      <p style="font-size: 18px;">موقعك هو أول انطباع عنك قدام العميل … خليه يحكي عنك صح موقعك هو وجهك في العالم الرقمي! حضورك الرقمي هيكون مميز وفعال.</p>
-    </div>
+<div id="services"style="
+  display:flex; 
+  flex-wrap: wrap; 
+  gap: 30px; 
+  justify-content: center; 
+  padding: 0 50px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+">
 
-    <!-- هوية بصرية -->
-    <div data-aos="fade-up" data-aos-delay="1000"
-      style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
-      onclick="selectService(this)" data-service="هوية بصرية"
-      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
-      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-      <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">هوية بصرية</h3>
-      <p style="font-size: 18px;">محتاج هوية بصرية تلمّس الناس؟ إحنا هنساعدك تصمم شعار وهوية تعبر عنك وتكبر بيها مشروعك وتجذب جمهورك.</p>
-    </div>
-
-    <!-- موشن جرافيك -->
-    <div data-aos="fade-up" data-aos-delay="1000"
-      style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
-      onclick="selectService(this)" data-service="موشن جرافيك"
-      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
-      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-      <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">موشن جرافيك</h3>
-      <p style="font-size: 18px;">✨ مع موشن جرافيك نخلق فيديوهات ديناميكية تلفت الأنظار وتوصل رسالتك بسهولة. جذب المشاهدين أصبح أسهل.</p>
-    </div>
-
-    <!-- اعلانات سوشيال ميديا -->
-    <div data-aos="fade-up" data-aos-delay="1000"
-      style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
-      onclick="selectService(this)" data-service="اعلانات سوشيال ميديا"
-      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
-      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-      <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">اعلانات سوشيال ميديا</h3>
-      <p style="font-size: 18px;">إعلانات جذابة وواضحة للسوشيال ميديا تساعدك توصل لعملاءك بشكل احترافي وتزيد التفاعل.</p>
-    </div>
-
+  <!-- بناء موقع الكتروني -->
+  <div data-aos=" fade-up" data-aos-delay="100" 
+    style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
+    onclick="selectService(this)" data-service="موقع الكتروني"
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+    <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">موقع الكتروني</h3>
+    <p style="font-size: 18px;">موقعك هو أول انطباع عنك قدام العميل … خليه يحكي عنك صح موقعك هو وجهك في العالم الرقمي! حضورك الرقمي هيكون مميز وفعال.</p>
   </div>
-</section>
+
+  <!-- هوية بصرية -->
+  <div data-aos="fade-up" data-aos-delay="300" 
+    style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
+    onclick="selectService(this)" data-service="هوية بصرية"
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+    <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">هوية بصرية</h3>
+    <p style="font-size: 18px;">محتاج هوية بصرية تلمّس الناس؟ إحنا هنساعدك تصمم شعار وهوية تعبر عنك وتكبر بيها مشروعك وتجذب جمهورك.</p>
+  </div>
+
+  <!-- موشن جرافيك -->
+  <div data-aos="fade-up" data-aos-delay="500" 
+    style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
+    onclick="selectService(this)" data-service="موشن جرافيك"
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+    <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">موشن جرافيك</h3>
+    <p style="font-size: 18px;">✨ مع موشن جرافيك نخلق فيديوهات ديناميكية تلفت الأنظار وتوصل رسالتك بسهولة. جذب المشاهدين أصبح أسهل.</p>
+  </div>
+
+  <!-- اعلانات سوشيال ميديا -->
+  <div data-aos="fade-up" data-aos-delay="700" 
+    style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
+    onclick="selectService(this)" data-service="اعلانات سوشيال ميديا"
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+    <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">اعلانات سوشيال ميديا</h3>
+    <p style="font-size: 18px;">إعلانات جذابة وواضحة للسوشيال ميديا تساعدك توصل لعملاءك بشكل احترافي وتزيد التفاعل.</p>
+  </div>
+
+  <!-- اعلانات المدرسين -->
+  <div data-aos="fade-up" data-aos-delay="900"
+    style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
+    onclick="selectService(this)" data-service="اعلانات المدرسين"
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+    <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">اعلانات المدرسين</h3>
+    <p style="font-size: 18px;">باقات متنوعة لكل مايخص المدرسين من حيث اعلانات السوشيال ميديا وشهادات التقدير وغلاف الكتب والملازم والفيديوهات التعريفية</p>
+  </div>
+
+  <!-- تعديل الفيديوهات -->
+  <div data-aos="fade-up" data-aos-delay="1100" 
+    style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
+    onclick="selectService(this)" data-service="تعديل الفيديوهات"
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+    <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">تعديل الفيديوهات</h3>
+    <p style="font-size: 18px;">الفيديو ايديتينج وانشاء الريلزات الخاصة بالفيس بوك والانستا وغيره ومونتاج الفيديوهات الطويلة والقصيرة</p>
+  </div>
+
+  <!-- البورتريه -->
+  <div data-aos="fade-up" data-aos-delay="1300" 
+    style="flex: 1; min-width: 250px; max-width: 300px; background-color: #111; padding: 30px; border-radius: 12px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer;"
+    onclick="selectService(this)" data-service="البورتريه"
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.4)'"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+    <h3 style="color: #fed600; font-size: 24px; margin-bottom: 10px;">البورتريه</h3>
+    <p style="font-size: 18px;">لو عندك حد متوفي او حد عزيز عليك تقدر تعمله بورتريه هدية او ذكري عزيزة</p>
+  </div>
+
+</div>
+
 
 <!-- <hr style="border: none; border-top: 1px solid #fed600; margin: 0;">
 
@@ -474,8 +774,8 @@ button[onclick="openModal()"]:hover {
 </section> -->
 
 
-<hr style="border: none; border-top: 1px solid #fed600; margin: 0;">
-<section class="testimonials" style="padding: 60px 5%; background-color: #111;" id="clients">
+<!-- <hr style="border: none; border-top: 1px solid #fed600; margin: 0;"> -->
+<section class="testimonials" style="padding: 60px 5%; background-color: #000000;" id="clients">
   <h2 style="color: #fed600; text-align: center; font-size: 36px;" data-aos="fade-up">آراء عملائنا</h2>
   <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 30px;">
     <div data-aos="fade-up" data-aos-delay="100" style="background-color: #222; padding: 20px; border-radius: 12px; max-width: 300px;">
@@ -496,7 +796,7 @@ button[onclick="openModal()"]:hover {
     </div>
   </div>
 </section>
-<hr style="border: none; border-top: 1px solid #fed600; margin: 0;">
+<!-- <hr style="border: none; border-top: 1px solid #fed600; margin: 0;"> -->
 <section style="padding: 60px 5%; background-color: #000; text-align: center;">
   <h2 style="color: #fed600; font-size: 36px;">ابرز عملائنا</h2>
   <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px;">
@@ -598,15 +898,18 @@ button[onclick="openModal()"]:hover {
     <option>موقع الكتروني</option>
     <option>موشن جرافيك</option>
     <option>اعلانات سوشيال ميديا</option>
+     <option>تعديل فيديوهات</option>
+      <option>اعلانات المدرسين</option>
+       <option> بورتريه </option>
     <option>اخري</option>
   </select>
 
-  <select id="payment" name="payment" required style="padding: 12px; background-color: #222; color: #fff; border: none; border-radius: 6px;">
+ <!-- <select id="payment" name="payment" required style="padding: 12px; background-color: #222; color: #fff; border: none; border-radius: 6px;">
     <option value="">اختر وسيلة الدفع</option>
     <option>فودافون كاش</option>
     <option>انستاباي</option>
     <option>فيزا</option>
-  </select>
+  </select> -->
 
   <textarea id="message" name="message" rows="4" placeholder="رسالتك"
             style="padding: 12px; background-color: #222; color: #fff; border: none; border-radius: 6px;"></textarea>
@@ -832,10 +1135,113 @@ button[onclick="openModal()"]:hover {
   });
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+<script>
+  window.addEventListener('wheel', function(e){
+    e.preventDefault();
+    gsap.to(window, {duration: 0.7, scrollTo: window.scrollY + e.deltaY * 2, ease: "power2.out"});
+  }, {passive: false});
+</script>
 
+<script>
+const counters = document.querySelectorAll('.counter');
 
+const options = { threshold: 0.5 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      const target = +counter.getAttribute('data-target');
+      const updateCount = () => {
+        const current = +counter.innerText;
+        const increment = target / 100;
+        if (current < target) {
+          counter.innerText = Math.ceil(current + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+      observer.unobserve(counter);
+    }
+  });
+}, options);
 
+counters.forEach(counter => observer.observe(counter));
 
+</script>
 
+<canvas id="cursorCanvas" style="position: absolute; top: 50px; left:0; right:0; width:100%; height:100%; pointer-events:none; z-index:9999;"></canvas>
+
+<script>
+const canvas = document.getElementById('cursorCanvas');
+const ctx = canvas.getContext('2d');
+
+function resize() {
+  // ضبط المقاسات الداخلية للكانفس لتساوي المقاسات المعروضة
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+const pointer = { x: canvas.width / 2, y: canvas.height / 2 };
+const dot = { x: pointer.x, y: pointer.y };
+const ring = { x: pointer.x, y: pointer.y };
+
+let lastMoveTime = Date.now();
+
+window.addEventListener('mousemove', e => {
+  const rect = canvas.getBoundingClientRect();
+  pointer.x = e.clientX - rect.left;
+  pointer.y = e.clientY - rect.top;
+  lastMoveTime = Date.now();
+});
+
+function animate() {
+  const isStopped = (Date.now() - lastMoveTime) > 2000;
+
+  if (isStopped) {
+    dot.x = pointer.x;
+    dot.y = pointer.y;
+    ring.x = pointer.x;
+    ring.y = pointer.y;
+  } else {
+    dot.x += (pointer.x - dot.x) * 0.05;
+    dot.y += (pointer.y - dot.y) * 0.05;
+    ring.x += (pointer.x - ring.x) * 0.02;
+    ring.y += (pointer.y - ring.y) * 0.02;
+  }
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.beginPath();
+  ctx.arc(dot.x, dot.y, 4, 0, Math.PI * 2);
+  ctx.fillStyle = '#fff';
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.arc(ring.x, ring.y, 20, 0, Math.PI * 2);
+  ctx.strokeStyle = '#fed600';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,  // مدة الحركة
+    once: true,     // تظهر مرة واحدة بس
+    offset: 120     // تبدأ لما العنصر ينزل 120px في الشاشة
+  });
+</script>
+
+<canvas id="cursorCanvas"></canvas>
 </body>
 </html>
